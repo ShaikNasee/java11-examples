@@ -1,4 +1,4 @@
-node('mvn-3.8.6') {
+node("mvn-3.8.6") {
     stage("git"){
         git 'https://github.com/ShaikNasee/java11-examples.git'
     }
