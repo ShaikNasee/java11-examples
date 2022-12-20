@@ -10,6 +10,5 @@ node('mvn-3.8.6') {
     }
     stage("junit reports"){
         junit '**/TEST-*.xml'
-        
     }
 }
