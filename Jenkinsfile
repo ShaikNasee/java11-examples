@@ -9,6 +9,6 @@ node("mvn-3.8.6") {
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
     }
     stage("junit reports"){
-        junit "**/TEST-*.xml"
+        junit '**/TEST-*.xml'
     }
 }
