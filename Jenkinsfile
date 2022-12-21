@@ -1,5 +1,5 @@
 node("mvn-3.8.6") {
-    triggers { upstream(upstreamProjects: 'starter-project', threshold: hudson.model.Result.SUCCESS) }
+    properties([pipelineTriggers([upstream('starter-project, ')])])
     stage("git"){
         git 'https://github.com/ShaikNasee/java11-examples.git'
     }
