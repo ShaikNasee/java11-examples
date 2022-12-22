@@ -1,6 +1,6 @@
 pipeline{
     agent{label 'mvn-3.8.6'}
-    triggers { upstream(upstreamProjects: 'starter-project1', threshold: hudson.model.Result.SUCCESS) }
+    triggers { upstream(upstreamProjects: 'starterproject1', threshold: hudson.model.Result.SUCCESS) }
     stages{
         stage('source code from git'){
             steps{
