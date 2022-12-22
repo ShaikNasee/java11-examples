@@ -9,7 +9,7 @@ pipeline{
         }
         stage('maven build'){
             steps{
-                sh 'maven clean package '
+                sh '/usr/local/apache-maven-3.8.6/bin/maven clean package '
             }
         }
     }
