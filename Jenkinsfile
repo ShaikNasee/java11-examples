@@ -1,7 +1,7 @@
 node("mvn-3.8.6") {
     properties([pipelineTriggers([upstream('starter-project, ')])])
     stage("git"){
-        git 'https://github.com/ShaikNasee/java11-examples.git'
+        git branch: 'scripted', url: 'https://github.com/ShaikNasee/java11-examples.git'
     }
     stage("build"){
         sh '/usr/local/apache-maven-3.8.6/bin/mvn clean package'
