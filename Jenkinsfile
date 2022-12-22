@@ -1,5 +1,5 @@
 node("mvn-3.8.6") {
-    properties([pipelineTriggers([upstream('starterproject1, ')])])
+    properties([pipelineTriggers([cron('* 3 * * 1-5')])])
     stage("git"){
         git branch: 'scripted', url: 'https://github.com/ShaikNasee/java11-examples.git'
     }
