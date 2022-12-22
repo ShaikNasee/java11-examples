@@ -1,15 +1,16 @@
-node("mvn-3.8.6") {
-    properties([pipelineTriggers([upstream('starter-project, ')])])
-    stage("git"){
-        git 'https://github.com/ShaikNasee/java11-examples.git'
-    }
-    stage("build"){
-        sh '/usr/local/apache-maven-3.8.6/bin/mvn clean package'
-    }
-    stage("archive artifacts"){
-        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
-    }
-    stage("Publish rest reports"){
-        junit '**/TEST-*.xml'
+pipeline{
+    agent{label 'mvn-3.8.6'}
+    triggers { upstream(upstreamProjects: 'starter-project1', threshold: hudson.model.Result.SUCCESS) }
+    stages{
+        stage('source code from git'){
+            steps{
+               git branch: 'declarative', url: 'https://github.com/ShaikNasee/java11-examples.git' 
+            }
+        }
+        stage('maven build'){
+            steps{
+                sh 'maven clean package '
+            }
+        }
     }
 }
